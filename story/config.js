@@ -15,10 +15,10 @@ var config = {
             image: './path/to/image/source.png',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             location: {
-              center: { lon: -77.02691, lat: 38.89237 },
-              zoom: 14.68,
-              pitch: 0.0,
-              bearing: 0.0,
+              center: { lon: -77.02378, lat: 38.89738 },
+              zoom: 14.03,
+              pitch: 0.00,
+              bearing: 0.00,
             },
             onChapterEnter: [
               {
