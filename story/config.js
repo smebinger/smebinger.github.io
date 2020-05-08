@@ -2,7 +2,7 @@ var config = {
     style: 'mapbox://styles/smebinger/ck91xdm5e1ms41ho8b5w63oha',
     accessToken: 'pk.eyJ1Ijoic21lYmluZ2VyIiwiYSI6ImNqMGVlZ3ducjAwejEzMm5zOG05aWUzcjEifQ.BuETqSmrqIHckR2AdhGmFw',
     showMarkers: true,
-    theme: 'light',
+    theme: 'dark',
     alignment: 'left',
     title: 'The Title Text of this Story',
     subtitle: 'A descriptive and interesting subtitle to draw in the reader',
@@ -22,14 +22,14 @@ var config = {
             },
             onChapterEnter: [
               {
-                layer: 'landuse',
+                layer: 'pet-waste-complaints',
                 opacity: 1,
               },
 
           ],
           onChapterExit: [
             {
-              layer: 'landuse',
+              layer: 'pet-waste-complaints',
               opacity: 0,
             },
 
