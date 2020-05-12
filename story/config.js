@@ -2,23 +2,25 @@ var config = {
     style: 'mapbox://styles/smebinger/ck91xdm5e1ms41ho8b5w63oha',
     accessToken: 'pk.eyJ1Ijoic21lYmluZ2VyIiwiYSI6ImNqMGVlZ3ducjAwejEzMm5zOG05aWUzcjEifQ.BuETqSmrqIHckR2AdhGmFw',
     showMarkers: true,
-    theme: 'dark',
+    theme: 'light',
     alignment: 'left',
-    title: 'The Title Text of this Story',
-    subtitle: 'A descriptive and interesting subtitle to draw in the reader',
-    byline: 'By a Digital Storyteller',
+    title: 'Frank Lloyd Wright Architecture in the Northeast:',
+    subtitle: 'Publicly Accessible Sites',
+    byline: 'By Samara Ebinger',
     footer: 'Source: source citations, etc.',
     chapters: [
         {
             id: 'slug-style-id',
             title: 'The Martin House',
             image: './path/to/image/source.png',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+            description: 'Built in 1904, considered one of the most important designs of Wright career.<br>
+View details at Frank Lloyd Wright Foundation website.
+Tour information: Martin House website.',
             location: {
-              center: { lon: -78.84826, lat: 42.93704 },
+              center: { lon: -78.84837, lat: 42.93666 },
               zoom: 16.00,
-              pitch: 0.00,
-              bearing: 0.00,
+              pitch: 57.00,
+              bearing: 16.81,
             },
             onChapterEnter: [
               {
