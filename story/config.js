@@ -11,12 +11,12 @@ var config = {
     chapters: [
         {
             id: 'slug-style-id',
-            title: 'Beautiful Washington DC!',
+            title: 'The Martin House',
             image: './path/to/image/source.png',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             location: {
-              center: { lon: -77.02378, lat: 38.89738 },
-              zoom: 14.03,
+              center: { lon: -78.84826, lat: 42.93704 },
+              zoom: 16.00,
               pitch: 0.00,
               bearing: 0.00,
             },
@@ -37,14 +37,14 @@ var config = {
         },
         {
             id: 'other-identifier',
-            title: 'Second Title',
+            title: 'Blue Sky Mausoleum',
             image: './path/to/image/source.png',
             description: 'Copy these sections to add to your story.',
             location: {
-              center: { lon: -77.01297, lat: 38.88811 },
-              zoom: 16.06,
-              pitch: 32.5,
-              bearing: -60.0,
+              center: { lon: -78.86287, lat: 42.92336 },
+              zoom: 15.80,
+              pitch: 44.50,
+              bearing: 0.01,
             },
             onChapterEnter: [],
             onChapterExit: []
