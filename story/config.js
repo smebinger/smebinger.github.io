@@ -12,10 +12,8 @@ var config = {
         {
             id: 'slug-style-id',
             title: 'The Martin House',
-            image: './path/to/image/source.png',
-            description: 'Built in 1904, considered one of the most important designs of Wright career.<br>
-View details at Frank Lloyd Wright Foundation website.
-Tour information: Martin House website.',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/0/04/Darwin_D_Martin_House%2C_Buffalo%2C_NY.jpg',
+            description: 'Built in 1904, considered one of the most important designs of Wright career.View details at Frank Lloyd Wright Foundation website.<br> Tour information: Martin House website.',
             location: {
               center: { lon: -78.84837, lat: 42.93666 },
               zoom: 16.00,
