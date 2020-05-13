@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset='utf-8' />
-    <title>Scrollytelling Template</title>
+    <title>Frank Lloyd Wright in the Northeast</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
@@ -10,15 +10,15 @@
     <script src="https://unpkg.com/scrollama"></script>
     <style>
         body {
-            margin:0; 
-            padding:0; 
+            margin:0;
+            padding:0;
             font-family: sans-serif;
         }
         a, a:hover, a:visited {
             color: #0071bc;
         }
         #map {
-            top:0; 
+            top:0;
             height: 100vh;
             width:100vw;
             position: fixed;
@@ -58,7 +58,7 @@
         }
         .light {
             color: #444;
-            background-color: #fafafa;
+            background-color: #F3eddd;
         }
         .dark {
             color: #fafafa;
@@ -158,19 +158,19 @@ if (header.innerText.length > 0) {
 config.chapters.forEach((record, idx) => {
     var container = document.createElement('div');
     var chapter = document.createElement('div');
-    
+
     if (record.title) {
         var title = document.createElement('h3');
         title.innerText = record.title;
         chapter.appendChild(title);
     }
-    
+
     if (record.image) {
-        var image = new Image();  
-        image.src = record.image;  
+        var image = new Image();
+        image.src = record.image;
         chapter.appendChild(image);
     }
-    
+
     if (record.description) {
         var story = document.createElement('p');
         story.innerHTML = record.description;
@@ -207,11 +207,11 @@ if (footer.innerText.length > 0) {
 mapboxgl.accessToken = config.accessToken;
 
 const transformRequest = (url) => {
-    const hasQuery = url.indexOf("?") !== -1;	  
-    const suffix = hasQuery ? "&pluginName=journalismScrollytelling" : "?pluginName=journalismScrollytelling";	  
+    const hasQuery = url.indexOf("?") !== -1;
+    const suffix = hasQuery ? "&pluginName=journalismScrollytelling" : "?pluginName=journalismScrollytelling";
     return {
       url: url + suffix
-    }	  
+    }
 }
 
 var map = new mapboxgl.Map({

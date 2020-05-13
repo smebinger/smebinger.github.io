@@ -4,7 +4,7 @@ var config = {
     showMarkers: true,
     theme: 'light',
     alignment: 'left',
-    title: 'Frank Lloyd Wright Architecture in the Northeast:',
+    title: 'A Tour of Frank Lloyd Wright Architecture in the Northeast:',
     subtitle: 'Publicly Accessible Sites',
     byline: 'By Samara Ebinger',
     footer: 'Source: source citations, etc.',
