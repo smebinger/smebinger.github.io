@@ -1,5 +1,5 @@
 var config = {
-    style: 'mapbox://styles/smebinger/ck9x7mh3k15fr1inqnzisusko',
+    style: 'mapbox://styles/smebinger/ckabnlkdn12mt1ipjoy0pvwqa',
     accessToken: 'pk.eyJ1Ijoic21lYmluZ2VyIiwiYSI6ImNqMGVlZ3ducjAwejEzMm5zOG05aWUzcjEifQ.BuETqSmrqIHckR2AdhGmFw',
     showMarkers: true,
     theme: 'light',
@@ -62,8 +62,21 @@ var config = {
             },
             onChapterEnter: [],
             onChapterExit: []
+        },
+        {
+            id: 'graycliff',
+            title: 'Graycliff',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Frank_Lloyd_Wright%E2%80%99s_Graycliff_at_Derby%2C_NewYork.jpg',
+            description: 'Copy these sections to add to your story.',
+            location: {
+              center: { lon: -78.97300, lat: 42.71401 },
+              zoom: 16.19,
+              pitch: 53.50,
+              bearing: -8.00,
+            },
+            onChapterEnter: [],
+            onChapterExit: []
         }
-
 
 
 
