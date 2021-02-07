@@ -13,14 +13,18 @@
 
         <div id = "map"></div>
         <script>
-            var map = L.map('map').setView([42.940652, -71.525458], 9);
+            var map = L.map('map', {
+                center: [42.940652, -71.525458],
+                zoom: 14
+              }).setMinZoom(10)
+                .setMaxZoom(13)
 
             L.tileLayer('https://api.mapbox.com/styles/v1/smebinger/ck91xdm5e1ms41ho8b5w63oha/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic21lYmluZ2VyIiwiYSI6ImNqMGVlZ3ducjAwejEzMm5zOG05aWUzcjEifQ.BuETqSmrqIHckR2AdhGmFw', {
-              attribution: 'Made with Leaflet and also Mapbox.',
-
-
-
+              attribution: 'Made with Mapbox.',
             }).addTo(map);
+
+            var marker = L.marker([42.940652, -71.525458]).addTo(map);
+            marker.bindPopup("<b>Hello!!!</b><br>This is a popup!");
 
         </script>
 
