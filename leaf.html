@@ -37,8 +37,11 @@
       center: [44.491, -71.113],
       zoom: 10
     });
+   
+    //L.esri.basemapLayer('ImageryClarity').addTo(map); 
     
-    L.esri.basemapLayer('ImageryClarity').addTo(map); 
+    L.tileLayer('https://api.mapbox.com/styles/v1/smebinger/ckl5vhc2k4qks17pms68ojsjt/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic21lYmluZ2VyIiwiYSI6ImNqMGVlZ3ducjAwejEzMm5zOG05aWUzcjEifQ.BuETqSmrqIHckR2AdhGmFw';
+              
      
     const nhPeaks = L.esri.featureLayer({
       url: 'https://services8.arcgis.com/iIjFHbPiKk5EdksF/arcgis/rest/services/NH_4000_Footer_Mountain_Peaks/FeatureServer/0'
