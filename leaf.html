@@ -53,7 +53,7 @@
     }).addTo(map);
     
     nhPeaks.bindPopup(function (evt) {
-      return L.Util.template('<h3>{Name}</h3><hr /><p> and its scientific name is {Elev_Feet}.', evt.feature.properties);
+      return L.Util.template('{Name},{Elev_Feet}', evt.feature.properties);
     });
     
   </script> 
