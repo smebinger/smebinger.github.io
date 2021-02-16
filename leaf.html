@@ -53,7 +53,7 @@
     }).addTo(map);
     
     nhPeaks.bindPopup(function (layer) {
-      return L.Util.template('<p>Peak name: {Name},{Elev_Feet}</p>', layer.feature.properties);
+      return L.Util.template('Test', layer.feature.properties);
     });
     
   </script> 
