@@ -52,6 +52,9 @@
       url: 'https://services8.arcgis.com/iIjFHbPiKk5EdksF/arcgis/rest/services/NH_4000_Footer_Mountain_Peaks/FeatureServer/0'
     }).addTo(map);
     
+    nhPeaks.bindPopup(function (evt) {
+      return L.Util.template('<h3>{COMMON}</h3><hr /><p>{Name} and its scientific name is {Elev_Feet}.', evt.feature.properties);
+    });
     
   </script> 
   
