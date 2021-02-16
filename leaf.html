@@ -52,8 +52,8 @@
       url: 'https://services8.arcgis.com/iIjFHbPiKk5EdksF/arcgis/rest/services/NH_4000_Footer_Mountain_Peaks/FeatureServer/0'
     }).addTo(map);
     
-    nhPeaks.bindPopup(function (evt) {
-      return L.Util.template('{Name},{Elev_Feet}', evt.feature.properties);
+    nhPeaks.bindPopup(function (layer) {
+      return L.Util.template('<p>Peak name: {Name},{Elev_Feet}</p>', layer.feature.properties);
     });
     
   </script> 
