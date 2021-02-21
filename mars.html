@@ -9,7 +9,7 @@
    crossorigin=""></script>
 
         <style>
-          #map {height: 180px;}
+          #map {height: 400px;}
         </style>
 
       </head>
@@ -21,8 +21,8 @@
 
             var baselayer = new L.tileLayer('https://cartocdn-gusc.global.ssl.fastly.net/opmbuilder/api/v1/map/named/opm-mars-basemap-v0-2/all/{z}/{x}/{y}.png', {
 			              zoom: 3,
-			              tms: true,
-		          }).addTo(map).setZIndex(0);
+			              tms: false,
+		          }).addTo(map);
         </script>
 
       </body>
