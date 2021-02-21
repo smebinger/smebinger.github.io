@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+    <html>
+      <head>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+
+        <style>
+          #map {position: absolute; top: 0; bottom: 0; left: 0; right: 0;}
+        </style>
+
+      </head>
+      <body>
+
+        <div id = "map"></div>
+        <script>
+            var map = L.map('map');
+
+            var baselayer = new L.tileLayer('http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/celestia_mars-shaded-16k_global/{z}/{x}/{y}.png', {
+              zoom: 3,
+              tms: true,
+              attribution: 'Made with Leaflet',
+
+            }).addTo(map).setZIndex(0);
+
+        </script>
+
+      </body>
+    </html>
+© 2021 GitHub, Inc.
