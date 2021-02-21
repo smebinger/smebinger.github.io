@@ -19,10 +19,10 @@
         <script>
             var map = L.map('map');
 
-            var baselayer = new L.tileLayer('https://cartocdn-gusc.global.ssl.fastly.net/opmbuilder/api/v1/map/named/opm-mars-basemap-v0-2/all/{z}/{x}/{y}.png', {
+            var baselayer = new L.tileLayer('https://s3.amazonaws.com/opmbuilder/301_moon/tiles/w/hillshaded-albedo/{z}/{x}/{y}.png', {
 			              zoom: 3,
 			              tms: false,
-		          }).addTo(map);
+		          }).addTo(map).setZIndex(0);
         </script>
 
       </body>
