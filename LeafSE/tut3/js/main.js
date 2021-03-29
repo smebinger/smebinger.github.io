@@ -8,7 +8,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/smebinger/ckl5jwq954f5w17jysw36tsa
 }).addTo(mymap);
 
 var catIcon = L.icon({
-    iconUrl: 'lib/Theo.png',
+    iconUrl: 'lib/Theo.PNG',
 
     iconSize:     [170, 195], // size of the icon
     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
