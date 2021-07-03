@@ -21,14 +21,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Kaushan+Script&display=swap" rel="stylesheet">
 
-       <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <!-- <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-    crossorigin=""></script> -->
-
-
-    <!--[if lte IE 8]><link rel="stylesheet" href="https://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
-
     <link rel="stylesheet" href="css/leaflet-sidebar.css" />
 
     <style>
@@ -53,18 +45,7 @@
           color: #e5f2e8;
         }
 
-        /* p {
-          margin: 10px 0px 0px 0px;
-          padding: -50px 10px 10px 10px;
-        } */
-
-        .custompop {
-          font-family: 'Courgette', cursive;
-
-        }
-
         .lorem {
-            /* font-family: 'Courgette', cursive; */
             font-family: 'Abel', sans-serif;
             color: #e5f2e8;
             font-size: 20px;
@@ -78,10 +59,6 @@
             <ul role="tablist">
                 <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
 
-
-            <!-- <ul role="tablist">
-                <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
-            </ul> -->
         </div>
 
         <!-- Tab panes -->
@@ -91,13 +68,8 @@
                     See New Hampshire's 4,000 Footers!
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1>
-
-
-
                 <p class="lorem">There are 48 mountain peaks in New Hampshire that are at least 4,000 feet in height and meet the criterion of topographic prominence, as determined by the <a href= https://www.outdoors.org target=_blank>Appalachian Mountain Club</a>. All 48 mountain peaks are within mountain ranges that comprise the White Mountains in northern New Hampshire.
 Zoom in and click on a mountain on the map for more information. View a complete list of 4,000 footers, ranked by level of difficulty and scenic view <a href=http://www.newenglandwaterfalls.com/4000footers.php target=_blank>here</a>.</p>
-
-
             </div>
 
             <div class="sidebar-pane" id="profile">
@@ -116,66 +88,40 @@ Zoom in and click on a mountain on the map for more information. View a complete
 
     <div id="map" class="sidebar-map"></div>
 
-    <!-- <a href="https://github.com/Turbo87/sidebar-v2/"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a> -->
-
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
 
     <script src="js/leaflet-sidebar.js"></script>
-    <script src="js/franconia.js"></script>
     <script src="js/nh4kpeaks.js"></script>
     <script>
+
+//Initialize map
     var map = L.map('map', {
         center: [44.134,-71.566],
         minZoom: 9,
         maxZoom: 16
     });
-map.setView([44.134,-71.566], 9);
+    map.setView([44.134,-71.566], 9);
 
-
-  //  var map = L.map('map').setView([44.134,-71.566], 9);
 // specify popup options
     var customOptions =
     {
     'maxWidth': '325',
     'className' : 'custompop',
-    'closeButton': true
-
+    'closeButton': false
     }
 
-
-
+//Function for popup style and content
     function franfunc (feature, layer) {
       layer.bindPopup("<b>" + feature.properties.NAME +"</b><br>" + "Elevation: " + feature.properties.Elev_Feet + " feet <br>" + "Location: " + feature.properties.Range + "<br><a href=" + feature.properties.URL + " target=_blank> More Details</a>"), customOptions;
       //layer.bindTooltip(feature.properties.NAME, {permanent: false, opacity: 0.1}).openTooltip();
-
     };
 
-//layer.bindPopup("<h2>" + feature.properties.NAME + "</h2>" + "<p>Elevation: " + feature.properties.Elev_Feet + " feet <br>" + "Location: " + feature.properties.Range + "<br><a href=" + feature.properties.URL + " target=_blank> More Details</a>"+ "<a href=" + feature.properties.Pic_Attr +" target=_blank><img src=" + feature.properties.Picture + " width='300'> ");
-
-    // var geojsonMarkerOptions = {
-    //     radius: 3,
-    //     fillColor: "#B0341A",
-    //     color: "#000",
-    //     weight: 8,
-    //     opacity: 0.1,
-    //     fillOpacity: 0.8
-    // };
-
-    // L.geoJSON(nh4kpeaks, {
-    //   pointToLayer: function(feature, latlng) {
-    //     return L.circleMarker(latlng, geojsonMarkerOptions);
-    //   },
-    //   onEachFeature:franfunc
-    // }).addTo(map);
-
+//Create mountain icon and apply to data layer, along with popup
     var mtIcon = L.icon({
         iconUrl: 'mt_symbol.svg',
         iconSize: [28, 17],
-        // size of the icon
-        // iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-        // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
 
     var peaks = L.geoJSON(nh4kpeaks, {
@@ -185,33 +131,15 @@ map.setView([44.134,-71.566], 9);
     onEachFeature:franfunc
     }).addTo(map);
 
-    //map.fitBounds(peaks.getBounds()
-//  );
+    //map.fitBounds(peaks.getBounds();
 
-
-
-
-
+//Add Mapbox tile layer
         L.tileLayer('https://api.mapbox.com/styles/v1/smebinger/cko1n88z712gu17nbl20e2wbz/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic21lYmluZ2VyIiwiYSI6ImNqMGVlZ3ducjAwejEzMm5zOG05aWUzcjEifQ.BuETqSmrqIHckR2AdhGmFw', {
           attribution: 'Made with Mapbox.'
-
-
-
-
       }).addTo(map);
 
-        // var map = L.map('map');
-        // map.setView([51.2, 7], 9);
-        //
-        // L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        //     maxZoom: 18,
-        //     attribution: 'Map data &copy; OpenStreetMap contributors'
-        // }).addTo(map);
-        //
-        // var marker = L.marker([51.2, 7]).addTo(map);
-
+//Add sidebar
         var sidebar = L.control.sidebar('sidebar').addTo(map);
-
 
     </script>
 </body>
