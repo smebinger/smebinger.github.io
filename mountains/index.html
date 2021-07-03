@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>See the 4,000 Footers!</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+       integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+       crossorigin=""/>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=New+Tegomin&family=PT+Sans&family=Roboto&family=Roboto+Condensed&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Barlow+Condensed:ital,wght@0,200;1,200&family=Courgette&family=Dancing+Script:wght@700&family=Lato&family=Raleway&family=Zilla+Slab:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Kaushan+Script&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/leaflet-sidebar.css" />
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body, #map {
+            height: 100%;
+            /* font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif; */
+            font-family: 'Kaushan Script', cursive;
+            font-size: 18px;
+        }
+
+        h2 {
+          font-family: 'Courgette', cursive;
+
+        }
+
+        a {
+          color: #e5f2e8;
+        }
+
+        .lorem {
+            font-family: 'Abel', sans-serif;
+            color: #e5f2e8;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar" class="sidebar collapsed">
+        <!-- Nav tabs -->
+        <div class="sidebar-tabs">
+            <ul role="tablist">
+                <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+
+        </div>
+
+        <!-- Tab panes -->
+        <div class="sidebar-content">
+            <div class="sidebar-pane" id="home">
+                <h1 class="sidebar-header">
+                    See New Hampshire's 4,000 Footers!
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <p class="lorem">There are 48 mountain peaks in New Hampshire that are at least 4,000 feet in height and meet the criterion of topographic prominence, as determined by the <a href= https://www.outdoors.org target=_blank>Appalachian Mountain Club</a>. All 48 mountain peaks are within mountain ranges that comprise the White Mountains in northern New Hampshire.
+Zoom in and click on a mountain on the map for more information. View a complete list of 4,000 footers, ranked by level of difficulty and scenic view <a href=http://www.newenglandwaterfalls.com/4000footers.php target=_blank>here</a>.</p>
+            </div>
+
+            <div class="sidebar-pane" id="profile">
+                <h1 class="sidebar-header">Profile<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            </div>
+
+            <div class="sidebar-pane" id="messages">
+                <h1 class="sidebar-header">Messages<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            </div>
+
+            <div class="sidebar-pane" id="settings">
+                <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            </div>
+        </div>
+    </div>
+
+    <div id="map" class="sidebar-map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+    <script src="js/leaflet-sidebar.js"></script>
+    <script src="js/nh4kpeaks.js"></script>
+    <script>
+
+//Initialize map
+    var map = L.map('map', {
+        center: [44.134,-71.566],
+        minZoom: 9,
+        maxZoom: 16
+    });
+    map.setView([44.134,-71.566], 9);
+
+// specify popup options
+    var customOptions =
+    {
+    'maxWidth': '325',
+    'className' : 'custompop',
+    'closeButton': false
+    }
+
+//Function for popup style and content
+    function franfunc (feature, layer) {
+      layer.bindPopup("<b>" + feature.properties.NAME +"</b><br>" + "Elevation: " + feature.properties.Elev_Feet + " feet <br>" + "Location: " + feature.properties.Range + "<br><a href=" + feature.properties.URL + " target=_blank> More Details</a>"), customOptions;
+      //layer.bindTooltip(feature.properties.NAME, {permanent: false, opacity: 0.1}).openTooltip();
+    };
+
+//Create mountain icon and apply to data layer, along with popup
+    var mtIcon = L.icon({
+        iconUrl: 'mt_symbol.svg',
+        iconSize: [28, 17],
+    });
+
+    var peaks = L.geoJSON(nh4kpeaks, {
+      pointToLayer: function(feature, latlng) {
+        return L.marker(latlng, {icon: mtIcon})
+      },
+    onEachFeature:franfunc
+    }).addTo(map);
+
+    //map.fitBounds(peaks.getBounds();
+
+//Add Mapbox tile layer
+        L.tileLayer('https://api.mapbox.com/styles/v1/smebinger/cko1n88z712gu17nbl20e2wbz/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic21lYmluZ2VyIiwiYSI6ImNqMGVlZ3ducjAwejEzMm5zOG05aWUzcjEifQ.BuETqSmrqIHckR2AdhGmFw', {
+          attribution: 'Made with Mapbox.'
+      }).addTo(map);
+
+//Add sidebar
+        var sidebar = L.control.sidebar('sidebar').addTo(map);
+
+    </script>
+</body>
+</html>
